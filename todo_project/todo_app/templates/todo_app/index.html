@@ -1,0 +1,28 @@
+{% extends 'todo_app/base.html' %}
+{% load static %}
+
+{%block content%}
+<div class="main">
+<h1>Task Manager</h1>
+<a href="{% url 'addtask'%}" class="addtaskref"> Add a Task </a>
+{%if not tasks %}
+    <p>There are no tasks yet.Add it right now!</p>
+{%else%}
+    {%for task in tasks%}
+        {% if task.complete == False %}
+            <p class="taskname">{{task.title}} <a href="{% url 'readmore' task.slug %}" class="readmoreref">Read more</a> <a href="{% url 'update' task.pk %}" > Edit </a></p>
+        {%else%}
+            <p class="taskname"><strike>{{task.title}}</strike><a href="{% url 'readmore' task.slug %}" class="readmoreref"> Read more</a><a href="{% url 'update' task.pk %}" > Edit</a> </p>
+        {%endif%}
+    {%endfor%}
+{%endif%}
+<br>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

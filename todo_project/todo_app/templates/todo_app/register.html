@@ -1,0 +1,14 @@
+{% extends 'todo_app/base.html' %}
+
+{%block content%}
+<div class="content">
+<h1>Register</h1>
+<form method="POST">
+{% csrf_token %}
+ {{ form.as_p}}
+
+<button  type="submit">Register</button>
+</form>
+
+</div>
+{%endblock%}

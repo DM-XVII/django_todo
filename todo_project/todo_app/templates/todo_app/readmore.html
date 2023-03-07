@@ -1,0 +1,13 @@
+{% extends 'todo_app/base.html' %}
+
+{%block content%}
+<div class="content">
+ <h3>Task : {{tasks.title}} </h3>
+<h3> Description : {{tasks.description}}</h3>
+<h3>Category : {{tasks.cat}}</h3>
+<a href="{% url 'update' tasks.pk %}" > Edit the Task </a>
+<br>
+<a href="{% url 'deletetask' tasks.pk %}" > Delete the Task </a>
+</div>
+{%endblock%}
+
